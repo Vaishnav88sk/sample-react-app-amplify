@@ -1,0 +1,24 @@
+version: 1.0
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+        - npm install 16
+        - npm use 16
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+
+# backend:
+#  phases:
+#    build:
+#      commands:
+#        - amplifyPush --simple
