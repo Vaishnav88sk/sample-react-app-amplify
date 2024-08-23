@@ -46,3 +46,21 @@ footer {
   width: 100%;
   text-align: center;
 }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+li h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+select {
+  margin-top: 20px;
+}
