@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+const apiKey = process.env.NEWS_API_KEY;
+const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=d9a4e53f40bc4a5eb9c880a378ef3833`;
+
 
 function Home() {
   const [articles, setArticles] = useState([]);
@@ -10,7 +13,7 @@ function Home() {
     const fetchArticles = async () => {
       try {
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?country=in&apiKey=d9a4e53f40bc4a5eb9c880a378ef3833`
+          url
         );
         setArticles(response.data.articles);
         setLoading(false);

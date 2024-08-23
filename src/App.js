@@ -5,16 +5,24 @@ import About from './components/About';
 import Article from './components/Article';
 import axios from 'axios';
 import './App.css';
+const apiKey = process.env.NEWS_API_KEY;
+const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=d9a4e53f40bc4a5eb9c880a378ef3833`;
+
+// Fetch news data
+fetch(url)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error fetching news:', error));
 
 function App() {
   const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?country=in&apiKey=d9a4e53f40bc4a5eb9c880a378ef3833`
+          url
         );
         setArticles(response.data.articles);
         setLoading(false);
